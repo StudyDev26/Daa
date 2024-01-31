@@ -30,7 +30,7 @@ int main()
         }
         if( k == b)
         {
-            cout << "Element not found" << endl;
+            cout << "Element not found\nComparisons made: "<< k << endl;
         }
     }
 }
