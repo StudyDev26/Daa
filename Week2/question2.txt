@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int n;
+    cout << "Enter the size of array: ";
+    cin >> n;
+    cout << "Enter the array elements:\n";
+    int arr[n];
+    for(int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+
+    int a, b, c;
+    for(a = 0; a < n; a++)
+    {
+        for(b = a + 1; b < n; b++)
+        {
+            for(c = 0; c < n; c++)
+            {
+                if(arr[a] + arr[b] == arr[c])
+                {
+                    cout << "\nThe value representation is: ";
+                    cout << arr[a] << " + " << arr[b] << " = " << arr[c] << endl;
+                    
+                    cout << "The index representation is: ";
+                    cout << a << " "<< b << " "<< c << "\n" << endl;
+                }
+            }
+        }
+    }
+
+    return 0;
+}
