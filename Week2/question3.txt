@@ -3,30 +3,44 @@ using namespace std;
 
 int main()
 {
-    int n;
-    cout << "Enter the size of array: ";
-    cin >> n;
-    cout << "Enter the array elements:\n";
-    int arr[n];
-    for(int i = 0; i < n; i++)
+    int n,m;
+    cout << "Ente the number of test cases: ";
+    cin >> m;
+    for(int i = 0; i < m; i++)
     {
-        cin >> arr[i];
-    }
-    int x;
-    cout << "Enter the difference to find in keys: ";
-    cin >> x;
-    for( int i = 0; i< n;i ++)
-    {
-        for( int j = 0; j < n; j++)
+        cout << "Enter the size of array: ";
+        cin >> n;
+        cout << "Enter the array elements:\n";
+        int arr[n];
+        for(int i = 0; i < n; i++)
         {
-            if( arr[j] - arr[i] == x)
+            cin >> arr[i];
+        }
+        int x;
+        cout << "Enter the difference to find in keys: ";
+        cin >> x;
+        int c = 0;
+        for( int i = 0; i< n;i ++)
+        {
+            for( int j = 0; j < n; j++)
             {
-                cout << "\nThe value representation is: ";
+                if( (arr[j] - arr[i] == x) || arr[i] - arr[j] == x)
+                {
+                    cout << "\nThe value representation is: ";
                     cout << arr[j] << " - " << arr[i] << " = " << x << endl;
                     
                     cout << "The index representation is: ";
                     cout << j << " , "<< i << " , "<< x << "\n" << endl;
+
+                    c ++;
+                }
             }
+        }
+        if( c == 0)
+        {
+            cout << "Difference of the entered number don't exist in the list." << endl;
+        }else{
+            cout << "The number of pairs whose difference is " << x << " are: " << c << endl;
         }
     }
 }
