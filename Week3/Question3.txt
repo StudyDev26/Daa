@@ -1,0 +1,49 @@
+#include <iostream>
+
+using namespace std;
+
+void selectionSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; ++i) {
+        int min_idx = i;
+        for (int j = i + 1; j < n; ++j) {
+            if (arr[j] < arr[min_idx]) {
+                min_idx = j;
+            }
+        }
+        if (min_idx != i) {
+            swap(arr[i], arr[min_idx]);
+        }
+    }
+}
+
+bool hasDuplicates(int arr[], int n) {
+    selectionSort(arr, n);
+    for (int i = 1; i < n; ++i) {
+        if (arr[i] == arr[i - 1]) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+int main() {
+    int T;
+    cin >> T;
+
+    while (T--) {
+        int n;
+        cin >> n;
+        int arr[n];
+        for (int i = 0; i < n; ++i) {
+            cin >> arr[i];
+        }
+        if (hasDuplicates(arr, n)) {
+            cout << "Yes, duplicates found" << endl;
+        } else {
+            cout << "No duplicates found" << endl;
+        }
+    }
+
+    return 0;
+}
